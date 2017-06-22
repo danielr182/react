@@ -13,7 +13,7 @@ import {
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Welcome lampara',
+    title: 'Welcome',
   };
   render() {
     const { navigate } = this.props.navigation;
