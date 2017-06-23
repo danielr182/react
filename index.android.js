@@ -10,6 +10,40 @@ import {
 import {
   StackNavigator,
 } from 'react-navigation';
+import * as firebase from 'firebase';
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyC95Ur7qq5cQIVj0MR8GRgmmTh_3y8YfBM",
+  authDomain: "proyecto1-ac0bc.firebaseapp.com",
+  databaseURL: "https://proyecto1-ac0bc.firebaseio.com",
+  storageBucket: "proyecto1-ac0bc.appspot.com"
+};
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const InitProject = StackNavigator({
+  Home: { screen: HomeScreen },
+  Chat: { screen: ChatScreen }
+});
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
 
 class HomeScreen extends Component {
   static navigationOptions = {
@@ -51,29 +85,5 @@ class ChatScreen extends React.Component {
     );
   }
 }
-
-const InitProject = StackNavigator({
-  Home: { screen: HomeScreen },
-  Chat: { screen: ChatScreen }
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('InitProject', () => InitProject);
