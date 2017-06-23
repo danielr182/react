@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'Welcome lampara',
   };
   render() {
     const { navigate } = this.props.navigation;

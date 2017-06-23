@@ -1,35 +1,59 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
+  Button,
   View
 } from 'react-native';
+import {
+  StackNavigator,
+} from 'react-navigation';
 
-export default class InitProject extends Component {
+import Login from './src/components/login/login';
+
+class HomeScreen extends Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+        <Button
+          onPress={() => navigate('Chat', { user: 'Nata' })}
+          title="Chat with la nena"
+        />
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Login style={styles.instructions}>
+          
+        </Login>
       </View>
     );
   }
 }
+
+class ChatScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `Chat with ${navigation.state.params.user}`
+  });
+  render() {
+    const { params } = this.props.navigation.state;
+    return (
+      <View>
+        <Text>Chat with la {params.user}</Text>
+      </View>
+    );
+  }
+}
+
+const InitProject = StackNavigator({
+  Home: { screen: HomeScreen },
+  Chat: { screen: ChatScreen }
+});
 
 const styles = StyleSheet.create({
   container: {
