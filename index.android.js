@@ -10,6 +10,8 @@ import {
 import {
   StackNavigator,
 } from 'react-navigation';
+
+import Login from './src/components/login/login';
 import * as firebase from 'firebase';
 
 // Initialize Firebase
@@ -21,53 +23,25 @@ const firebaseConfig = {
 };
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const InitProject = StackNavigator({
-  Home: { screen: HomeScreen },
-  Chat: { screen: ChatScreen }
-});
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Welcome lampara',
+    title: 'Welcome',
   };
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
+      /*<View style={styles.container}>
         <Button
           onPress={() => navigate('Chat', { user: 'Nata' })}
           title="Chat with la nena"
         />
         <Text style={styles.welcome}>
           Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+        </Text>        
+      </View>*/
+      <Login />
     );
   }
 }
@@ -85,5 +59,29 @@ class ChatScreen extends React.Component {
     );
   }
 }
+
+const InitProject = StackNavigator({
+  Home: { screen: HomeScreen },
+  Chat: { screen: ChatScreen }
+});
+
+const styles = StyleSheet.create({
+  container: {
+
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  login: {
+   
+  }
+});
 
 AppRegistry.registerComponent('InitProject', () => InitProject);

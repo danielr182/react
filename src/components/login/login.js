@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, KeyboardAvoidingView } from 'react-native';
+import LoginForm from './loginForm';
 
 class Login extends Component {
     render() {
@@ -10,6 +11,7 @@ class Login extends Component {
               <Text style={styles.title}>An app made for something great.</Text>
             </View>
             <View style={styles.formContainer}>
+              <LoginForm />
             </View>    
           </View>
         );
